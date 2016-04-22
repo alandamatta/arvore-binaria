@@ -71,7 +71,7 @@ public class Arvore<T extends Comparable<T>> {
 		}
 	}
 	
-	
+	//pesquisa com recursividade
 	@Override
 	public String toString() {
 		ArrayList<T> lista = retornaLista(raiz);
@@ -91,12 +91,16 @@ public class Arvore<T extends Comparable<T>> {
 	private No<T> pesquisar(T valor, No<T> raizSubArvore){
 		int compara = raizSubArvore.compareTo(valor);
 		if(compara == 0){
-			//valor encotrado
+			//valor encontrado
 			return raizSubArvore;
 		}else if(compara > 0){
 			return pesquisar(valor, raizSubArvore.getEsquerda());
 		}else{
 			return pesquisar(valor, raizSubArvore.getDireita());
 		}
+	}
+	
+	public ArrayList<T> listaArvore(){
+		return retornaLista(raiz);
 	}
 }
