@@ -29,8 +29,7 @@ public class No<T extends Comparable<T>> implements Comparable<T> {
 	
 	@Override
 	public int compareTo(T o) {
-		// TODO Auto-generated method stub
-		return 0;
+		return valor.compareTo(o);
 	}
 
 	public T getValor() {
