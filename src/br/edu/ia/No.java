@@ -2,7 +2,7 @@ package br.edu.ia;
 
 public class No<T extends Comparable<T>> implements Comparable<T> {
 
-	T valor; //valor do nó
+	T valor; //valor do nó passado por parâmetro
 	No<T> esquerda; //nó da esquerda
 	No<T> direita; //nó da direita
 	No<T> pai; //nó pai, assim podemos ver a árvore de baixo p/ cima
@@ -16,6 +16,7 @@ public class No<T extends Comparable<T>> implements Comparable<T> {
 		pai = null;
 	}
 	
+	//Construtor
 	No(T valor, No<T> pai){
 		this.valor = valor;
 		direita = null;
@@ -23,9 +24,7 @@ public class No<T extends Comparable<T>> implements Comparable<T> {
 		this.pai = pai;
 	}
 	
-	//getters e setters
-	
-	
+	//getters e setters	
 	
 	@Override
 	public int compareTo(T o) {

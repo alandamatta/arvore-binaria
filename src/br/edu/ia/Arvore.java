@@ -1,5 +1,7 @@
 package br.edu.ia;
 
+import java.util.ArrayList;
+
 public class Arvore<T extends Comparable<T>> {
 	
 	private No<T> raiz;
@@ -54,6 +56,27 @@ public class Arvore<T extends Comparable<T>> {
 			}
 		}
 		return no; //nó inserido
+	}
+	
+	private ArrayList<T> retornaLista(No<T> no){
+		if(no == null){
+			return new ArrayList<T>(); //lista vazia
+		}else{
+			//
+			ArrayList<T> lista = retornaLista(no.getEsquerda());
+			lista.add(no.getValor());
+			lista.addAll(retornaLista(no.getDireita()));
+			return lista;
+		}
+	}
+	
+	
+	@Override
+	public String toString() {
+		ArrayList<T> lista = retornaLista(raiz);
+		String saida = "";
+		for(T item : lista) saida += item + "-";
+		return saida;
 	}
 	
 }
