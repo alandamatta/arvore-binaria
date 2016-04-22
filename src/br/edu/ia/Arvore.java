@@ -1,6 +1,7 @@
 package br.edu.ia;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Arvore<T extends Comparable<T>> {
 	
@@ -79,4 +80,23 @@ public class Arvore<T extends Comparable<T>> {
 		return saida;
 	}
 	
+	public No<T> pesquisar(T valor){
+		if(raiz == null){
+			return null;
+		}else{
+			return pesquisar(valor, raiz);
+		}
+	}
+	
+	private No<T> pesquisar(T valor, No<T> raizSubArvore){
+		int compara = raizSubArvore.compareTo(valor);
+		if(compara == 0){
+			//valor encotrado
+			return raizSubArvore;
+		}else if(compara > 0){
+			return pesquisar(valor, raizSubArvore.getEsquerda());
+		}else{
+			return pesquisar(valor, raizSubArvore.getDireita());
+		}
+	}
 }
