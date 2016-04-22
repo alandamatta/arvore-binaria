@@ -17,13 +17,6 @@ public class Teste {
 		a.inserir(9);
 		a.inserir(19);
 		
-		No no = a.pesquisar(6);
-		
-		
-		System.out.println("O pai do nó " + no.getValor() + " é: " + no.getPai().getValor());
-		System.out.println("A direita dele está: " + no.getDireita().getValor());
-		System.out.println("A esquerda dele está: " + no.getEsquerda().getValor());
-		
 		BuscaEmLargura<Integer> busca = new BuscaEmLargura();
 		busca.executar(a, 19);
 	}

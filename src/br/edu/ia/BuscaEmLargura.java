@@ -1,6 +1,7 @@
 package br.edu.ia;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class BuscaEmLargura<T extends Comparable<T>> {
 	
@@ -10,7 +11,6 @@ public class BuscaEmLargura<T extends Comparable<T>> {
 		No<T> noRaiz = arvore.getRaiz(); //pega valor da raiz
 		No<T> noRaizEsquerda = noRaiz.getEsquerda();
 		No<T> noRaizDireita = noRaiz.getDireita();
-		System.out.println("ESQUERDA DA RAIZ: " + noRaiz.getEsquerda().getValor());
 		fila.add(noRaizEsquerda);
 		fila.add(noRaizDireita);
 				
@@ -21,6 +21,18 @@ public class BuscaEmLargura<T extends Comparable<T>> {
 			if(noAtual.getValor() == valor){				
 				//retornar caminho para raíz
 				System.out.println("Valor encontrado. O pai dele é: " + noAtual.getPai().getValor());
+				Stack pilha = new Stack<>();
+				String caminho = "";
+				i = 0;
+				while(noAtual.getPai() != null){
+					pilha.push(noAtual.getValor());
+					noAtual = noAtual.getPai();
+					i++;//iterador para desempilhar
+				}
+				System.out.println(caminho);
+				for (int j = i; j > 0 ; j--) {
+					System.out.println(pilha.pop());
+				}
 				break;
 			}
 			if(noAtual.getEsquerda() != null){
